@@ -18,10 +18,6 @@ const getPlaylists = AsyncCatcher(async (req, res, next) => {
     cover: item.thumbnail,
     artist: item.author,
     album_title: item.name,
-    // songs: item.songs.map((song) => ({
-    //   ...song,
-    //   title: song.songName,
-    // })),
   }));
 
   res.status(request.status).json({

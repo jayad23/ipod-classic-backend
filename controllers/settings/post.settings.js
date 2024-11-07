@@ -8,7 +8,7 @@ const postSettings = AsyncCatcher(async (req, res, next) => {
   }
 
   const response = await uploadProcessedData({
-    document_name: "settings",
+    collection_name: "settings",
     document_id: "menu_options",
     document_data: req.body,
   });

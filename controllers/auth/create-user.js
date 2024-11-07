@@ -33,7 +33,7 @@ const createUser = AsyncCatcher(async (req, res, next) => {
   }
 
   const response = await uploadProcessedData({
-    document_name: "users",
+    collection_name: "users",
     document_id: email,
     document_data: payload,
   });
