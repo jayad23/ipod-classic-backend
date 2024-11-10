@@ -8,28 +8,11 @@ const updatePlaylist = AsyncCatcher(async (req, res, next) => {
   const { artist } = req.body;
 
   const request = await getByDocument({
-    collection_name: "iamkikevanegas",
+    collection_name: "playlists",
     document_name: id,
   });
 
   const elementFound = request.data;
-
-  // const values = [];
-
-  // for (const song of elementFound.songs) {
-  //   const [artist, title] = song.songName.split(" - ");
-  //   values.push({
-  //     ...song,
-  //     artist: artist || "",
-  //   });
-  // }
-
-  // const payload = {
-  //   ...elementFound,
-  //   songs: values,
-  // };
-
-  console.log("payload", payload);
 
   const payload = {
     ...elementFound,
@@ -40,7 +23,7 @@ const updatePlaylist = AsyncCatcher(async (req, res, next) => {
   };
 
   const updated = await uploadProcessedData({
-    collection_name: "iamkikevanegas",
+    collection_name: "playlists",
     document_id: id,
     document_data: payload,
   });

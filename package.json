@@ -25,7 +25,8 @@
     "firebase": "^11.0.1",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "uuid": "^11.0.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

@@ -7,7 +7,7 @@ const { AsyncErrorHandler } = require("../../utils/async-error-handler");
 
 const getPlaylists = AsyncCatcher(async (req, res, next) => {
   const request = await getAllDataOfCollection({
-    document_name: "iamkikevanegas",
+    document_name: "playlists",
   });
 
   if (request.status !== 200) {
@@ -16,10 +16,8 @@ const getPlaylists = AsyncCatcher(async (req, res, next) => {
 
   const playlist = request.data.map((item, index) => ({
     ...item,
-    id: index + 1,
-    uid: item.id,
+    index: index + 1,
     cover: item.thumbnail,
-    artist: item.author,
     album_title: item.name,
   }));
 
@@ -37,7 +35,7 @@ const getSinglePlaylist = AsyncCatcher(async (req, res, next) => {
   }
 
   const request = await getByDocument({
-    collection_name: "iamkikevanegas",
+    collection_name: "playlists",
     document_name: req.params.id,
   });
 
