@@ -11,6 +11,7 @@ const { rate_limit_options } = require("./config/rate-limit-options");
 const { usersRoutes } = require("./routes/users.route");
 const { settingsRoutes } = require("./routes/settings.route");
 const { musicRoutes } = require("./routes/music.route");
+const { videoRoutes } = require("./routes/videos.route");
 
 const app = express();
 app.use(cors(cors_options));
@@ -30,6 +31,7 @@ app.get("/api/v1", (req, res) => {
 app.use("/api/v1", settingsRoutes);
 app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/music", musicRoutes);
+app.use("/api/v1", videoRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
